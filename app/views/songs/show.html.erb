@@ -1,0 +1,22 @@
+<p><iframe src="<%= @song.spotify %>" width="1425" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></p>
+
+
+<% @song.artists.each do |artist| %>
+    <p></p><%= link_to artist.name, artist_path(artist) %></p>
+<% end %>
+
+
+
+<p>Genre: <%= @song.genre %></p>
+<p>Runtime: <%= @song.length %></p>
+
+<%= form_for @reviews do |f| %>
+<%= f.text :rating%>
+<%= f.text_field :rating %>
+<%= f.text :content %>
+<%= f.text_area :content %>
+<%= f.submit %>
+<% end %>
+
+
+

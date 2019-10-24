@@ -1,0 +1,16 @@
+<% if flash[:error]%>
+<% flash[:error].each do | error |%>
+<li>
+<%= error %>
+</li>
+<% end %>
+<% end %>
+
+
+<%= form_with url: '/login', method: 'post' do |f| %>
+<%=f.label :user_name %>
+<%= f.text_field :user_name %>
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.submit "Login" %>
+<% end %>
