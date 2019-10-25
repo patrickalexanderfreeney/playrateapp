@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "songs" %>
+
 <p><iframe src="<%= @song.spotify %>" width="1425" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe></p>
 
 
@@ -10,11 +12,16 @@
 <p>Genre: <%= @song.genre %></p>
 <p>Runtime: <%= @song.length %></p>
 
-<%= form_for @reviews do |f| %>
-<%= f.text :rating%>
+<%= form_for @review do |f| %>
+<%= f.hidden_field :user_id, :value => @user.id %>
+<%= f.hidden_field :song_id, :value => @song.id %>
+<br>
+<%= f.label :rating%>
 <%= f.text_field :rating %>
-<%= f.text :content %>
+<br>
+<%= f.label :content %>
 <%= f.text_area :content %>
+<br>
 <%= f.submit %>
 <% end %>
 

@@ -5,21 +5,24 @@ class ReviewsController < ApplicationController
     end
 
     def new 
-        @review = review.new
-        @songs = song.all
+        @review = Review.new
+        @songs = Song.all
     end
 
     def create
-
-        Review.create
-
-           redirect_to song_path
+        # byebug
+        @user_id = session[:user_id]
+        @review = Review.create(review_params)
+        
+        # byebug
+        @song = Song.find(params[:review][:song_id])
+        redirect_to song_path(@song)
     end
 
     private
 
     def review_params
-        params.require(review).permit(:user_id, :song_id, :content, :rating)
+        params.require(:review).permit(:user_id, :song_id, :content, :rating)
     end
 
 end

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :artists
   resources :songs 
   resources :users, only: [:show, :create]
+  resources :reviews
 
   get '/register', to: 'users#new'
 

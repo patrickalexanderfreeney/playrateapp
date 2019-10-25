@@ -9,6 +9,7 @@ class SongsController < ApplicationController
     @song = Song.find(params[:id])
     # @artist = Artist.find(params[:id])
     @review = Review.new
+    @reviews = Review.all
   end
 
   def new
