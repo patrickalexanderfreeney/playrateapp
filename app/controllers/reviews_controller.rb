@@ -10,11 +10,12 @@ class ReviewsController < ApplicationController
     end
 
     def create
+        # byebug
         @user_id = session[:user_id]
         @review = Review.create(review_params)
         
         # byebug
-        # @song = Review.find(song_id: @review.song_id)
+        @song = Song.find(params[:review][:song_id])
         redirect_to song_path(@song)
     end
 

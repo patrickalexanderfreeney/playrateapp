@@ -1,0 +1,18 @@
+h1 { 
+    font-size: 20 px;
+    font-weight: thick; 
+    font-family: 'Comic Sans MS';
+    color: blueviolet;
+
+}
+
+p { 
+    font-size: 14 px; 
+    font-weight: normal 
+    font-family: 'Trebuchet MS';
+    color: #4d4dff;
+}
+
+body {
+    background-color: #a3c2c2;
+}
